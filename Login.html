@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<!-- <style>
+     body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    .whole_register_div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .form-label, .form-control {
+        color: #e0e0e0;
+    }
+    .form-control::placeholder {
+        color: #bdbdbd;
+    }
+    .btn-custom {
+        background-color: #1f1f1f;
+        color: #e0e0e0;
+        border: 1px solid #e0e0e0;
+    }
+    .btn-custom:hover {
+        background-color: #333333;
+        border-color: #ffffff;
+    }
+    a {
+        color: #e0e0e0;
+    }
+    a:hover {
+        color: #ffffff;
+    }
+   
+
+</style> -->
+<!-- 
+<body>
+    <div class="container">
+        <div class="text-center my-4">
+            <a href="Register.html">Register</a>
+        </div>
+        <div class="whole_register_div">
+            <h2>Login</h2>
+            <div class="mb-3 w-50">
+                <label for="Login_Name" class="form-label">Email Id</label>
+                <input type="text" class="form-control" id="Login_Name" placeholder="Enter Your Email">
+            </div>
+            <div class="mb-3 w-50">
+                <label for="Login_Password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="Login_Password" placeholder="Enter Your Password">
+            </div>
+            <button class="btn btn-custom w-50" onclick="loginbutton('Login_Name','Login_Password')">Login</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body> -->
+
+
+<style>
+    body {  
+        background: rgb(89,149,220);
+        background: radial-gradient(circle, rgba(89,149,220,1) 0%, rgba(2,61,130,1) 100%);
+        color: #e0e0e0; /* Light text color */
+        font-family: Arial, sans-serif; /* Set a readable font */
+        margin: 0; /* Remove default margin */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Full height for centering */
+        padding: 20px; /* Padding for spacing */
+    }
+
+    .whole_register_div {
+        border-radius: 10px; /* Rounded corners */
+        padding: 40px; /* Inner padding */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+        width: 100%;
+        max-width: 400px; /* Max width for larger screens */
+        text-align: center; /* Center text inside the form */
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgb(0 0 0 / 18%);
+         backdrop-filter: blur(7px);
+        border: 1px solid rgba(255, 255, 255, 0.64);
+
+    }
+
+    h2 {
+        color: #3a3a81;
+        margin-bottom: 20px; /* Space below the title */
+    }
+
+    .form-label, .form-control {
+        color: #e0e0e0; /* Consistent text color */
+        font-size: 16px; /* Increased font size for readability */
+    }
+
+    .form-control {
+        background-color: #333; /* Dark background for inputs */
+        border: 1px solid #444; /* Border color */
+        border-radius: 5px; /* Rounded input corners */
+        padding: 10px; /* Inner padding */
+        width: 100%; /* Full width inputs */
+        margin-bottom: 20px; /* Space below inputs */
+        transition: border 0.3s; /* Smooth transition for border color */
+    }
+
+    .form-control::placeholder {
+        color: #bdbdbd; /* Placeholder color */
+    }
+
+    .form-control:focus {
+        border-color: #e0e0e0; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+    }
+
+    .btn-custom {
+        background-color: #1f1f1f; /* Dark button background */
+        color: #e0e0e0; /* Light text color */
+        border: 1px solid #e0e0e0; /* Matching border color */
+        border-radius: 5px; /* Rounded button corners */
+        padding: 12px; /* Padding for button */
+        cursor: pointer; /* Change cursor on hover */
+        font-size: 16px; /* Increased button font size */
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+        width: 100%; /* Full width button */
+    }
+
+    .btn-custom:hover {
+        background-color: #333333; /* Darker background on hover */
+        border-color: #ffffff; /* Change border color on hover */
+    }
+
+    a {
+        color: #e0e0e0; /* Link color */
+        text-decoration: none; /* Remove underline */
+        font-size: 14px; /* Adjust link font size */
+    }
+
+    a:hover {
+        color: #ffffff; /* Change link color on hover */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        .whole_register_div {
+            padding: 20px; /* Reduce padding on small screens */
+        }
+
+        h2 {
+            font-size: 24px; /* Adjust heading size */
+        }
+
+        .form-label, .form-control, .btn-custom {
+            font-size: 14px; /* Decrease font size for smaller screens */
+        }
+    }
+</style>
+
+
+<body>
+    <div class="container">
+       
+        <div class="whole_register_div">
+            <h2>Login</h2>
+            <div class="mb-3">
+                <label for="Login_Name" class="form-label">Email Id</label>
+                <input type="text" class="form-control" id="Login_Name" placeholder="Enter Your Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="Login_Password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="Login_Password" placeholder="Enter Your Password" required>
+            </div>
+            <button class="btn btn-custom" onclick="loginbutton('Login_Name','Login_Password')">Login</button>
+            <div class="text-center my-4">
+                <a href="Register.html">Register</a>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+
+<!-- <body>
+    <a href="Register.html">Register</a>
+    <div class="whole_register_div">
+        <h2>Login</h2>
+        <label for="">Email Id</label> <br>
+        <input type="text" id="Login_Name" placeholder="Enter Your Email"> <br>
+        <label for="">Password</label> <br>
+        <input type="text" id="Login_Password" placeholder="Enter Your Password"> <br>
+        <button onclick="loginbutton('Login_Name','Login_Password')">Login</button>
+    </div>
+</body> -->
+<script src="main.js"></script>
+</html>

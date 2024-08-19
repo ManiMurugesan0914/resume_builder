@@ -1,0 +1,57 @@
+#res_name{
+    font-size: 45px;
+    font-weight: 600;
+    color: #222;
+    
+}
+.persons_info h3{
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+}
+.persons_contact_info h6{
+font-weight: 400;
+color:#666;
+margin-right: 15px;
+}
+.tech_skills_list{
+    gap:10px;
+}
+.tech_skills_list li{
+    margin-right: 15px;
+}
+.projects_name_div h5{
+    font-size: 16px;
+    font-weight: 400;
+}
+.projects_name_div h4{
+font-size: 20px;
+font-weight: 500;
+}
+
+.projects_detail_div h5{
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 400;
+}
+.projects_detail_div h6{
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 400;
+}
+.personal_details_info h3, h4{
+
+    font-size: 18px;
+    font-weight: 400;
+    color: #444;
+}
+.personal_details_info_inner{
+    gap:10px
+}
+.personal_details_info h3{
+    width: 180px !important;
+}
+
+/* ///Login Page Styling// */
+
+
