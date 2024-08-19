@@ -1,3 +1,10 @@
+.dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
 #res_name{
     font-size: 45px;
     font-weight: 600;
