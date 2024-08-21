@@ -346,24 +346,33 @@ localStorage.setItem("resume_list",JSON.stringify(resume_list_array));
 viewlist();
 }
 
-
 function viewlist(){
-  
+  let displaylist="";
 for(let each in resume_list_array){
-  if(resume.admin_id==resume_list_array[each].admin_id){
-    document.getElementById("whole_listing").innerHTML+=`<tr>
+  if(admin_email==resume_list_array[each].admin_id){
+    displaylist+=`<tr>
     <td>${resume_list_array[each].name} </td>
     <td>${resume_list_array[each].email} </td>
     <td>${resume_list_array[each].phoneno} </td>
     <td><a href="view.html?index=${each}"><button>View</button> </a></td>
-    <td> <button onclick="">Delete</button></td>
+    <td> <button onclick="deletelisting(${each})">Delete</button></td>
     </tr>`
   }
-  
+ 
 }
+document.getElementById("whole_listing").innerHTML=displaylist;
 }
 
-function deletelisting(){
+function deletelisting(index_key){
+  let new_adding_List_array=[];
+    for(let n in resume_list_array){
+      if(n!=index_key){
+        new_adding_List_array.push(resume_list_array[n]);
+      }
+    }
+    resume_list_array=new_adding_List_array;
+    localStorage.setItem('resume_list',JSON.stringify(new_adding_List_array));
+    viewlist();
 
 }
 
