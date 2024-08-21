@@ -313,7 +313,7 @@ function loginbutton(firstparam,secondparam){
   }
   if (loginvalue==true){
     alert("Login success");
-    window.location.href = "Index.html";
+    window.location.href = "index.html";
   }else{
     alert("Login failed");
   }
