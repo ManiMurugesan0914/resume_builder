@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Register Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <style>
     body {  
         background: rgb(89,149,220);
         background: radial-gradient(circle, rgba(89,149,220,1) 0%, rgba(2,61,130,1) 100%);
         color: #e0e0e0; /* Light text color */
-        font-family: Arial, sans-serif; /* Set a readable font */
-        font-family: "Poppins", sans-serif;
+        font-family: "Poppins", sans-serif; /* Set a readable font */
         margin: 0; /* Remove default margin */
     }
 
@@ -26,7 +25,6 @@
         padding: 20px; /* Padding for spacing */
     }
 
-    
     .whole_register_div {
         border-radius: 10px; /* Rounded corners */
         padding: 40px; /* Inner padding */
@@ -37,9 +35,9 @@
         background: rgba(255, 255, 255, 0.26);
         border-radius: 16px;
         box-shadow: 0 4px 30px rgb(0 0 0 / 18%);
-         backdrop-filter: blur(7px);
+        backdrop-filter: blur(7px);
         border: 1px solid rgba(255, 255, 255, 0.64);
-
+        margin-bottom: 20px;
     }
 
     h2 {
@@ -83,15 +81,13 @@
     }
 
     .btn-custom:hover {
-         /* Darker background on hover */ 
         color: #000;
         font-weight: 600;
         background: rgb(205,9,125);
-background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%);
+        background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%);
     }
 
     a {
-    
         text-decoration: none; /* Remove underline */
         font-size: 14px; /* Adjust link font size */
         font-weight: 400;
@@ -99,24 +95,26 @@ background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%
         padding: 10px 15px;
         border-radius: 5px;
         color: #000;
-    background: #f2ab47;
+        background: #f2ab47;
     }
 
     a:hover {
         color: #ffffff; /* Change link color on hover */
     }
-    h1{
+
+    h1 {
         font-family: "Playfair Display", serif;
         color:  #fdb44b;
         text-shadow: 2px 2px 10px black;
         font-weight: 700;
         font-size: 45px;
-      }
+    }
 
-      .logo-svg{
+    .logo-svg {
         width: 90px;
         vertical-align: text-top;
-      }
+    }
+
     /* Responsive Styles */
     @media (max-width: 480px) {
         .whole_register_div {
@@ -132,32 +130,37 @@ background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%
         }
     }
 </style>
-
-
+</head>
 <body>
-    <div class="container">
-        <div class="row">
-        <div class="col-12 mb-5"><h1> <img class="logo-svg" src="images/Frame 1000001278.svg" alt="">Resume Builder</h1></div>
-        </div>
-       
-        <div class="whole_register_div">
-            <h2>Sign In</h2>
-            <div class="mb-3">
-                <label for="Login_Name" class="form-label">Email Id</label>
-                <input type="text" class="form-control" id="Login_Name" placeholder="Enter Your Email" required>
-            </div>
-            <div class="mb-3">
-                <label for="Login_Password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="Login_Password" placeholder="Enter Your Password" required>
-            </div>
-            <button class="btn btn-custom" onclick="loginbutton('Login_Name','Login_Password')">Login</button>
-            <div class="text-center my-4">
-                <a href="register.html">Register</a>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-5">
+            <h1> <img class="logo-svg" src="images/Frame 1000001278.svg" alt=""> Resume Builder</h1>
         </div>
     </div>
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-</body>
+
+    <div class="whole_register_div">
+        <h2>Registration Page</h2>
+        <div class="mb-3">
+            <label for="reg_name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="reg_name" placeholder="Enter Your Name">
+        </div>
+        <div class="mb-3">
+            <label for="reg_password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="reg_password" placeholder="Enter Your Password">
+        </div>
+        <div class="mb-3">
+            <label for="reg_email" class="form-label">Email Id</label>
+            <input type="email" class="form-control" id="reg_email" placeholder="Enter Your Email">
+        </div>
+        <button class="btn btn-custom" onclick="registerbutton('reg_name','reg_password','reg_email')">Register</button>
+        <div class="text-center my-4">
+            <a href="index.html">Login</a>
+        </div>
+    </div>
+  
+</div>
 <script src="main.js"></script>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html> 
