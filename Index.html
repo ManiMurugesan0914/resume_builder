@@ -3,370 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adding Resume Builder</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <style>
-    body {
+    body {  
         background: rgb(89,149,220);
         background: radial-gradient(circle, rgba(89,149,220,1) 0%, rgba(2,61,130,1) 100%);
-        color: #e0e0e0;
+        color: #e0e0e0; /* Light text color */
+        font-family: Arial, sans-serif; /* Set a readable font */
         font-family: "Poppins", sans-serif;
-        margin: 0;
+        margin: 0; /* Remove default margin */
     }
 
-    .resume_builder_section {
+    .container {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
-        padding: 20px;
-    }
-
-    .resume_builder_divider {
-        padding: 20px;
-        max-width: 1000px;
-        margin: 20px;
-        background: rgba(255, 255, 255, 0.26);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgb(0 0 0 / 18%);
-        backdrop-filter: blur(7px);
-        border: 1px solid rgba(255, 255, 255, 0.64);
-    }
-
-    .resume_builder_divider h2, .resume_builder_divider h3, .resume_builder_divider h4 {
-        color: #3a3a81;
-        margin-bottom: 10px;
-    }
-
-    .resume_builder_divider input[type="text"], 
-    .resume_builder_divider input[type="email"], 
-    .resume_builder_divider input[type="tel"] {
-        background-color: #ffffff;
-        border: 1px solid #444;
-        border-radius: 5px;
-        padding: 10px;
-        width: calc(100% - 22px);
-        margin-bottom: 20px;
-        color: #3a3a81;
-        font-size: 16px;
-        transition: border 0.3s;
-    }
-
-    .resume_builder_divider input::placeholder {
-        color: #bdbdbd;
-    }
-
-    .resume_builder_divider input:focus {
-        border-color: #e0e0e0;
-        outline: none;
-    }
-
-    .resume_builder_divider button {
-        background-color: #1E2A5E;
-        color: #e0e0e0;
-        border-radius: 5px;
-        padding: 12px;
-        font-size: 16px;
-        width: 100%;
-        margin-bottom: 20px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .resume_builder_divider button:hover {
-        background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%);
-        color: #000;
-        font-weight: 600;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 8px;
-        text-align: left;
-    }
-
-    .code_preview_div {
-        max-width: 650px;
-        color: white;
-        padding: 20px;
-    }
-
-    h2, h3, h4 {
-        margin-bottom: 10px;
-        color: #fdb44b;
-    }
-
-    ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    ul li {
-        background-color: #ececec;
-        padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        color: #3a3a81;
-    }
-
-    ul li:hover {
-        background-color: #1E2A5E;
-        color: #e0e0e0;
-    }
-
-    table th, table td {
-        background-color: #ececec;
-        color: #3a3a81;
-    }
-
-    table th {
-        background-color: #1E2A5E;
-        color: #e0e0e0;
+        align-items: center;
+        min-height: 100vh; /* Full height for centering */
+        padding: 20px; /* Padding for spacing */
     }
 
     
-    h1 {
+    .whole_register_div {
+        border-radius: 10px; /* Rounded corners */
+        padding: 40px; /* Inner padding */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+        width: 100%;
+        max-width: 400px; /* Max width for larger screens */
+        text-align: center; /* Center text inside the form */
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgb(0 0 0 / 18%);
+         backdrop-filter: blur(7px);
+        border: 1px solid rgba(255, 255, 255, 0.64);
+
+    }
+
+    h2 {
+        color: #3a3a81;
+        margin-bottom: 20px; /* Space below the title */
+    }
+
+    .form-label, .form-control {
+        color: #3a3a81; /* Consistent text color */
+        font-size: 16px; /* Increased font size for readability */
+    }
+
+    .form-control {
+        background-color: #ececec; /* Dark background for inputs */
+        border: 1px solid #444; /* Border color */
+        border-radius: 5px; /* Rounded input corners */
+        padding: 10px; /* Inner padding */
+        width: 100%; /* Full width inputs */
+        margin-bottom: 20px; /* Space below inputs */
+        transition: border 0.3s; /* Smooth transition for border color */
+    }
+
+    .form-control::placeholder {
+        color: #bdbdbd; /* Placeholder color */
+    }
+
+    .form-control:focus {
+        border-color: #e0e0e0; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+    }
+
+    .btn-custom {
+        background-color: #1E2A5E; /* Dark button background */
+        color: #e0e0e0; /* Light text color */
+        border-radius: 5px; /* Rounded button corners */
+        padding: 12px; /* Padding for button */
+        cursor: pointer; /* Change cursor on hover */
+        font-size: 16px; /* Increased button font size */
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+        width: 100%; /* Full width button */
+    }
+
+    .btn-custom:hover {
+         /* Darker background on hover */ 
+        color: #000;
+        font-weight: 600;
+        background: rgb(205,9,125);
+background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%);
+    }
+
+    a {
+    
+        text-decoration: none; /* Remove underline */
+        font-size: 14px; /* Adjust link font size */
+        font-weight: 400;
+        background: black;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #000;
+    background: #f2ab47;
+    }
+
+    a:hover {
+        color: #ffffff; /* Change link color on hover */
+    }
+    h1{
         font-family: "Playfair Display", serif;
         color:  #fdb44b;
         text-shadow: 2px 2px 10px black;
         font-weight: 700;
         font-size: 45px;
-    }
+      }
 
-    .logo-svg {
+      .logo-svg{
         width: 90px;
         vertical-align: text-top;
-    }
-    .logout-btn a{
-        text-decoration: none;
-        color:#000;
-        background:#fdb44b;
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
+      }
     /* Responsive Styles */
-    @media (max-width: 768px) {
-        .resume_builder_divider, .code_preview_div {
-            width: 100%;
-            margin: 0;
+    @media (max-width: 480px) {
+        .whole_register_div {
+            padding: 20px; /* Reduce padding on small screens */
+        }
+
+        h2 {
+            font-size: 24px; /* Adjust heading size */
+        }
+
+        .form-label, .form-control, .btn-custom {
+            font-size: 14px; /* Decrease font size for smaller screens */
         }
     }
 </style>
 
+
 <body>
-    <!-- <div class="">
-        <a href="list.html">List</a>
-    </div> -->
     <div class="container">
         <div class="row">
-            <div class="col-12 pt-3 mb-2 text-center">
-                <h1> <img class="logo-svg" src="images/Frame 1000001278.svg" alt=""> Resume Builder</h1>
+        <div class="col-12 mb-5"><h1> <img class="logo-svg" src="images/Frame 1000001278.svg" alt="">Resume Builder</h1></div>
+        </div>
+       
+        <div class="whole_register_div">
+            <h2>Sign In</h2>
+            <div class="mb-3">
+                <label for="Login_Name" class="form-label">Email Id</label>
+                <input type="text" class="form-control" id="Login_Name" placeholder="Enter Your Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="Login_Password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="Login_Password" placeholder="Enter Your Password" required>
+            </div>
+            <button class="btn btn-custom" onclick="loginbutton('Login_Name','Login_Password')">Login</button>
+            <div class="text-center my-4">
+                <a href="register.html">Register</a>
             </div>
         </div>
     </div>
-  
-    
-    <section class="resume_builder_section">
-      <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-10 px-0 logout-btn">
-                <div class="mx-4" style="float: right;">
-                    <a href="Login.html">Log Out</a>
-                </div>
-                <div style="float: right;">
-                    <a href="list.html">List</a>
-                </div>
-            </div>
-           
-        </div>
-      </div>
-        <div class="resume_builder_divider">
-            <!-- Input Fields with Labels -->
-            <h4>Name</h4>
-            <input type="text" onkeyup="save(this,'name')" placeholder="Enter Your Name"><br>
-            
-            <h4>Email ID</h4>
-            <input type="email" onkeyup="save(this,'email')" placeholder="Enter Your Email"><br>
-            
-            <h4>Role</h4>
-            <input type="text" onkeyup="save(this,'role')" placeholder="Enter Your Role"><br>
-            
-            <h4>Mobile Number</h4>
-            <input type="tel" onkeyup="save(this,'phoneno')" placeholder="Enter Your Phone Number"><br>
-            
-            <h4>Profile Link</h4>
-            <input type="text" onkeyup="save(this,'LinkedIn')" placeholder="Enter Your LinkedIn"><br>
-            
-            <h4>Location</h4>
-            <input type="text" onkeyup="save(this,'location')" placeholder="Enter Your Location"><br>
-
-            <h4>Objective</h4>
-            <input type="text" onkeyup="save(this,'objective')" placeholder="Enter Your Objective"><br>
-
-            <h3>Personal Details</h3>
-            <h4>Father's Name</h4>
-            <input type="text" onkeyup="save(this,'fathername','personaldetails')" placeholder="Enter Your Father's Name"><br>
-
-            <h4>Mother's Name</h4>
-            <input type="text" onkeyup="save(this,'mothername','personaldetails')" placeholder="Enter Your Mother's Name"><br>
-            
-            <h4>Languages Known</h4>
-            <input type="text" id="language" placeholder="Enter Languages Known">
-            <button type="button" onclick="add('personaldetails','language','languages_known')">Add Language</button>
-            <ul id="language_listing"></ul>
-
-            <h4>Skills</h4>
-            <input type="text" id="skillvalue" placeholder="Enter Your Skills">
-            <button type="button" onclick="add('skills','skillvalue')"> Add</button>
-            <ul id="Skill_listing"></ul>
-
-            <h3>Education</h3>
-            <input type="text" id="education_name" placeholder="Enter Institute Name">
-            <input type="text" id="education_type" placeholder="Enter Studies">
-            <input type="text" id="education_start_Period" placeholder="Enter Period">
-            <input type="text" id="education_end_Period" placeholder="Enter Period">
-            <input type="text" id="education_Percentage" placeholder="Enter Percentage">
-            <button type="button" onclick="exp_add('education_view','education','education_name','education_type','education_start_Period','education_end_Period','education_Percentage')">Add</button>
-            <div>
-                <table style="width:100%">
-                    <tr>
-                        <th>Institute Name</th>
-                        <th>Studies</th>
-                        <th>Starting Year</th>
-                        <th>Ending Year</th>
-                        <th>Percentage</th>
-                        <th>Action</th>
-                    </tr>
-                    <tbody id="education_view"></tbody>
-                </table>
-            </div>
-
-            <h2>Projects</h2>
-            <input type="text" id="projectName" placeholder="Enter project name" />
-            <input type="text" id="projectstartYear" placeholder="Enter Project Start year" />
-            <input type="text" id="projectendYear" placeholder="Enter Project end year" />
-            <input type="text" id="project_Role" placeholder="Enter role in project" />
-            <input type="text" id="project_Url" placeholder="Enter Project Url" />
-            <input type="text" id="projectDescription" placeholder="Enter Project Description" />
-            <button type="button" onclick="exp_add('project_view','projects','projectName','projectstartYear','projectendYear','project_Role','project_Url','projectDescription')">Add</button>  
-            <div>
-                <table style="width:100%">
-                    <tr>
-                        <th>Project Name</th>
-                        <th>Project Start Year</th>
-                        <th>Project End Year</th>
-                        <th>Project Role</th>
-                        <th>Project Url</th>
-                        <th>Project Description</th>
-                        <th>Action</th>
-                    </tr>
-                    <tbody id="project_view"></tbody>
-                </table>
-            </div>
-    
-            <h2>Experience</h2>
-            <input type="text" id="work_Role" placeholder="Enter Designation" />
-            <input type="text" id="company_Name" placeholder="Enter Company Name" />
-            <input type="text" id="company_Location" placeholder="Enter Company Location" />
-            <input type="text" id="work_start_period" placeholder="Enter Work Start Period" />
-            <input type="text" id="work_end_period" placeholder="Enter Work End Period" />
-            <input type="text" id="experience_Desc" placeholder="Enter Experience Description" />
-            <button type="button" onclick="exp_add('experience_view','workexperience','work_Role','company_Name','company_Location','work_start_period','work_end_period','experience_Desc')">Add</button>  
-            <div>
-                <table style="width:100%">
-                    <tr>
-                        <th>Designation</th>
-                        <th>Company Name</th>
-                        <th>Company Location</th>
-                        <th>Work Start Period</th>
-                        <th>Work end Period</th>
-                        <th>Experience Description</th>
-                        <th>Action</th>
-                    </tr>
-                    <tbody id="experience_view"></tbody>
-                </table>
-            </div>
-        <div class="my-4">
-            <button onclick="resumesubmit()">Submit</button>
-        </div>
-        
-        </div>
-        
-    </section>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
-
-<script src="main.js" text="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-
-
-<script>
-    // function getName (){
-    //     alert(1);
-    // }
-
-    // getName();
-
-    // function add(num1,num2){
-    //     console.log(num1+num2);
-    // }
-    // add(6,7);
-    // function sub(num1,num2){
-    //     console.log(num1-num2);
-    // }
-    // sub(6,7);
-    // function multiply(num1,num2){
-    //     console.log(num1*num2);
-    // }
-    // multiply(6,7);
-    // function division(num1,num2){
-    //     console.log(num1/num2);
-    // }
-    // division(6,7);
-    // function reminder(num1,num2){
-    //     console.log(num1%num2);
-    // }
-    // reminder(6,7);
-
-    // function add(num1,num2){
-    //     return num1+num2;
-    // }
-    // let result =add(1,2);
-
-
-// let colors=["red","green","yellow","white","black"];
-// let givenColor="green";
-// let days=["Sunday","Monday","Tuesday","Wednesday"];
-// let givenDate="friday";
-
-// function givenData (list,each){
-//     for(let i=0;i<list.length;i++){
-//         if(list[i]==each){
-//             return true;
-//         }
-//     }
-//     return false;
-   
-//     // return list.includes(each);
-
-// }
-// let result=givenData(colors,givenColor);
-
-// if(result){
-//     console.log(givenColor +" is available in the colors variable");
-// }else {
-// console.log(givenColor +" is not available in the colors variable");
-// }
-
-// let daysResult=givenData(days,givenDate);
-// if(daysResult){
-//     console.log(givenDate +" is available in the days variable");
-// }else {
-// console.log(givenDate +" is not available in the days variable");
-// }
-</script>
-    
+<script src="main.js"></script>
 </html>
