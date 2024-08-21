@@ -8,27 +8,159 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <style>
-    .whole_register_div{
+    body {  
+        background: rgb(89,149,220);
+        background: radial-gradient(circle, rgba(89,149,220,1) 0%, rgba(2,61,130,1) 100%);
+        color: #e0e0e0; /* Light text color */
+        font-family: "Poppins", sans-serif; /* Set a readable font */
+        margin: 0; /* Remove default margin */
+    }
+
+    .container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
+        min-height: 100vh; /* Full height for centering */
+        padding: 20px; /* Padding for spacing */
+    }
+
+    .whole_register_div {
+        border-radius: 10px; /* Rounded corners */
+        padding: 40px; /* Inner padding */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+        width: 100%;
+        max-width: 400px; /* Max width for larger screens */
+        text-align: center; /* Center text inside the form */
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgb(0 0 0 / 18%);
+        backdrop-filter: blur(7px);
+        border: 1px solid rgba(255, 255, 255, 0.64);
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #3a3a81;
+        margin-bottom: 20px; /* Space below the title */
+    }
+
+    .form-label, .form-control {
+        color: #3a3a81; /* Consistent text color */
+        font-size: 16px; /* Increased font size for readability */
+    }
+
+    .form-control {
+        background-color: #ececec; /* Dark background for inputs */
+        border: 1px solid #444; /* Border color */
+        border-radius: 5px; /* Rounded input corners */
+        padding: 10px; /* Inner padding */
+        width: 100%; /* Full width inputs */
+        margin-bottom: 20px; /* Space below inputs */
+        transition: border 0.3s; /* Smooth transition for border color */
+    }
+
+    .form-control::placeholder {
+        color: #bdbdbd; /* Placeholder color */
+    }
+
+    .form-control:focus {
+        border-color: #e0e0e0; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+    }
+
+    .btn-custom {
+        background-color: #1E2A5E; /* Dark button background */
+        color: #e0e0e0; /* Light text color */
+        border-radius: 5px; /* Rounded button corners */
+        padding: 12px; /* Padding for button */
+        cursor: pointer; /* Change cursor on hover */
+        font-size: 16px; /* Increased button font size */
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+        width: 100%; /* Full width button */
+    }
+
+    .btn-custom:hover {
+        color: #000;
+        font-weight: 600;
+        background: rgb(205,9,125);
+        background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%);
+    }
+
+    a {
+        text-decoration: none; /* Remove underline */
+        font-size: 14px; /* Adjust link font size */
+        font-weight: 400;
+        background: black;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #000;
+        background: #f2ab47;
+    }
+
+    a:hover {
+        color: #ffffff; /* Change link color on hover */
+    }
+
+    h1 {
+        font-family: "Playfair Display", serif;
+        color:  #fdb44b;
+        text-shadow: 2px 2px 10px black;
+        font-weight: 700;
+        font-size: 45px;
+    }
+
+    .logo-svg {
+        width: 90px;
+        vertical-align: text-top;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        .whole_register_div {
+            padding: 20px; /* Reduce padding on small screens */
+        }
+
+        h2 {
+            font-size: 24px; /* Adjust heading size */
+        }
+
+        .form-label, .form-control, .btn-custom {
+            font-size: 14px; /* Decrease font size for smaller screens */
+        }
     }
 </style>
+</head>
 <body>
-    <a href="Login.html">Login</a>
-    <div class="whole_register_div"> 
-        <h2>Registeration Page</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-5">
+            <h1> <img class="logo-svg" src="images/Frame 1000001278.svg" alt=""> Resume Builder</h1>
+        </div>
     </div>
+
     <div class="whole_register_div">
-        <label for="">Name</label> <br>
-        <input type="text" id="reg_name" placeholder="Enter Your Name"> <br>
-        <label for="">Password</label> <br>
-        <input type="text" id="reg_password" placeholder="Enter Your Password"> <br>
-        <label for="">Email Id</label> <br>
-        <input type="text" id="reg_email" placeholder="Enter Your Email"> <br>
-        <button onclick="registerbutton('reg_name','reg_password','reg_email')">Register</button>
+        <h2>Registration Page</h2>
+        <div class="mb-3">
+            <label for="reg_name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="reg_name" placeholder="Enter Your Name">
+        </div>
+        <div class="mb-3">
+            <label for="reg_password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="reg_password" placeholder="Enter Your Password">
+        </div>
+        <div class="mb-3">
+            <label for="reg_email" class="form-label">Email Id</label>
+            <input type="email" class="form-control" id="reg_email" placeholder="Enter Your Email">
+        </div>
+        <button class="btn btn-custom" onclick="registerbutton('reg_name','reg_password','reg_email')">Register</button>
+        <div class="text-center my-4">
+            <a href="Login.html">Login</a>
+        </div>
     </div>
-</body>
+  
+</div>
 <script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
 </html> 

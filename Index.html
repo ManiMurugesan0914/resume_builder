@@ -3,199 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM</title>
-
+    <title>Adding Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <style>
-    .resume_builder_section{
-        display: flex;
-        background-color: rgb(131, 36, 88);
+    body {
+        background: rgb(89,149,220);
+        background: radial-gradient(circle, rgba(89,149,220,1) 0%, rgba(2,61,130,1) 100%);
+        color: #e0e0e0;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
     }
-    .code_preview_div{
+
+    .resume_builder_section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .resume_builder_divider {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 20px;
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgb(0 0 0 / 18%);
+        backdrop-filter: blur(7px);
+        border: 1px solid rgba(255, 255, 255, 0.64);
+    }
+
+    .resume_builder_divider h2, .resume_builder_divider h3, .resume_builder_divider h4 {
+        color: #3a3a81;
+        margin-bottom: 10px;
+    }
+
+    .resume_builder_divider input[type="text"], 
+    .resume_builder_divider input[type="email"], 
+    .resume_builder_divider input[type="tel"] {
+        background-color: #ffffff;
+        border: 1px solid #444;
+        border-radius: 5px;
+        padding: 10px;
+        width: calc(100% - 22px);
+        margin-bottom: 20px;
+        color: #3a3a81;
+        font-size: 16px;
+        transition: border 0.3s;
+    }
+
+    .resume_builder_divider input::placeholder {
+        color: #bdbdbd;
+    }
+
+    .resume_builder_divider input:focus {
+        border-color: #e0e0e0;
+        outline: none;
+    }
+
+    .resume_builder_divider button {
+        background-color: #1E2A5E;
+        color: #e0e0e0;
+        border-radius: 5px;
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resume_builder_divider button:hover {
+        background: linear-gradient(90deg, rgba(205,9,125,1) 19%, rgba(243,129,14,1) 93%);
+        color: #000;
+        font-weight: 600;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .code_preview_div {
         max-width: 650px;
         color: white;
-    }
-    .code_preview_div pre{
-        white-space: pre-wrap; /* Allows long text to wrap */
-        word-wrap: break-word; /* Prevents overflow */
-        text-wrap: initial;
-    }
-    .resume_builder_divider{
         padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
-        display: block;
-        background-color: rgb(242, 250, 255);
     }
-    table, th, td {
-  border:1px solid black;
-}
-    h2,h4{
-        display: inline-block;
-        width: 290px;
-        margin-bottom: 0;
+
+    h2, h3, h4 {
+        margin-bottom: 10px;
+        color: #fdb44b;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    ul li {
+        background-color: #ececec;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        color: #3a3a81;
+    }
+
+    ul li:hover {
+        background-color: #1E2A5E;
+        color: #e0e0e0;
+    }
+
+    table th, table td {
+        background-color: #ececec;
+        color: #3a3a81;
+    }
+
+    table th {
+        background-color: #1E2A5E;
+        color: #e0e0e0;
+    }
+
+    
+    h1 {
+        font-family: "Playfair Display", serif;
+        color:  #fdb44b;
+        text-shadow: 2px 2px 10px black;
+        font-weight: 700;
+        font-size: 45px;
+    }
+
+    .logo-svg {
+        width: 90px;
+        vertical-align: text-top;
+    }
+    .logout-btn a{
+        text-decoration: none;
+        color:#000;
+        background:#fdb44b;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .resume_builder_divider, .code_preview_div {
+            width: 100%;
+            margin: 0;
+        }
     }
 </style>
+
 <body>
-    <div >
+    <!-- <div class="">
         <a href="list.html">List</a>
-       
+    </div> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pt-3 mb-2 text-center">
+                <h1> <img class="logo-svg" src="images/Frame 1000001278.svg" alt=""> Resume Builder</h1>
+            </div>
+        </div>
     </div>
+  
     
     <section class="resume_builder_section">
-      
-        <div class="resume_builder_divider">
-        <h4>Name</h4>
-    <input type="text" onkeyup="save(this,'name')"  placeholder="Enter Your Name"><br>
-    <h4>Email ID</h4>
-    
-    <input type="email" onkeyup="save(this,'email')"  placeholder="Enter Your Email"><br>
-    <h4>Role</h4>
-    <input type="text" onkeyup="save(this,'role')"  placeholder="Enter Your Role"><br>
-    <h4>Mobile Number</h4>
-    <input type="tel" onkeyup="save(this,'phoneno')"  placeholder="Enter Your Phone Number"><br>
-    <h4>Profile Link</h4>
-    <input type="text" onkeyup="save(this,'LinkedIn')"  placeholder="Enter Your LinkedIn"><br>
-    <h4>Location</h4>
-    <input type="text" onkeyup="save(this,'location')"  placeholder="Enter Your Location"><br>
-
-    <h4>Objective</h4>
-    <input type="text" onkeyup="save(this,'objective')"  placeholder="Enter Your Objective"><br><br>
-    <h3>Personal Details</h3>
-    <h4>Father's Name</h4>
-    <input type="text" onkeyup="save(this,'fathername','personaldetails')"  placeholder="Enter Your Father's Name"><br>
-    <h4>Mother's Name</h4>
-    <input type="text" onkeyup="save(this,'mothername','personaldetails')"  placeholder="Enter Your Mother's Name"><br>
-    <!-- <h4>Nationality</h4>
-    <input type="text" onkeyup="save(this,'nationality','personaldetails')"  placeholder="Enter Your Nationality"><br> -->
-    <!-- <h4>Date of Birth</h4>
-    <input type="date" onkeyup="save(this,'Dob','personaldetails')"  placeholder="Enter Your Date of Birth"><br><br> -->
-    <h4>Languages Known</h4>
-    <input type="text" id="language" placeholder="Enter Languages Known">
-    <button type="button" onclick="add('personaldetails','language','languages_known')">Add Language</button>
-    <ul id="language_listing"></ul>
-
-    <!-- <h3>Contact</h3> -->
-    <!-- <h4>Address</h4>
-    <input type="address" onkeyup="save(this,'address','contact')"  placeholder="Enter Your address"> <br> -->
-    <!-- <h4>Phone Number</h4> 
-    <input type="tel" onkeyup="save(this,'phone no','contact')"  placeholder="Enter Your Phone Number"><br><br> -->
-   
-    <h4>Skills</h4>
-    <input type="text" id="skillvalue" placeholder="Enter Your Skills">
-    <!-- <input type="text" id="skillvalue" onkeyup="save(this,'','','skills')" placeholder="Enter Your Skills"><br><br> -->
-     <!-- <input type="password" id="pass" name="Password" placeholder="Password"><br><br> -->
-    <button type="button" onclick="add('skills','skillvalue')"> Add</button>
-    <ul id="Skill_listing"></ul>
-
-<!-- 
-    <h3>Experience</h3>
-    <input type="text" id="exp_role" placeholder="Enter Your Role"><br><br>
-    <input type="text" id="exp_company" placeholder="Enter Your company name"><br><br>
-    <input type="text" id="exp_desc" placeholder="Enter Your Description "><br><br>
-    <input type="date" id="exp_join_date"   placeholder="Enter Your Joining Date"><br><br>
-    <input type="date" id="exp_leave_date"  placeholder="Enter Your Leaving Date"><br><br>
-    <input type="text" id="company_location"  placeholder="Enter Your Company Location"><br><br>
-    <button type="button" onclick="exp_add('exp_role','exp_company','workexperience')">Add Experience</button>
- -->
-
-    <h3>Education</h3>
-      <input type="text" id="education_name" placeholder="Enter Institute Name">
-      <input type="text" id="education_type" placeholder="Enter Studies">
-      <input type="text" id="education_start_Period" placeholder="Enter Period">
-      <input type="text" id="education_end_Period" placeholder="Enter Period">
-      <input type="text" id="education_Percentage" placeholder="Enter Percentage">
-      <button type="button"  onclick="exp_add('education_view','education','education_name','education_type','education_start_Period','education_end_Period','education_Percentage')">Add</button> <br> <br>
-
-      <div>
-        <table  style="width:100%">
-            <tr>
-                <th>Institute Name</th>
-                <th>Studies</th>
-                <th>Starting Year</th>
-                <th>Ending Year</th>
-                <th>Percentage</th>
-                <th>Action</th>
-              </tr>
-            <tbody id="education_view" ></tbody>
-          </table>
-
-      </div>
-    <h2>Projects</h2> <br>  
-    <input type="text" id="projectName" placeholder="Enter project name" />
-    <input type="text" id="projectstartYear" placeholder="Enter Project Start year" />
-    <input type="text" id="projectendYear" placeholder="Enter Project end year" />
-    <input type="text" id="project_Role" placeholder="Enter role in project" />
-    <input type="text" id="project_Url" placeholder="Enter Project Url" />
-    <input type="text" id="projectDescription" placeholder="Enter Project Description" />
-    <button type="button" onclick="exp_add('project_view','projects','projectName','projectstartYear','projectendYear','project_Role','project_Url','projectDescription',)">Add</button>  
- <div>
-        <table style="width:100%">
-            <tbody>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Project Start Year</th>
-                    <th>Project End Year</th>
-                    <th>Porject Role</th>
-                    <th>Project Url</th>
-                    <th>Project Description</th>
-                    <th>Action</th>
-                  </tr>
-                <tbody id="project_view">
-                    
-                </tbody>
-             
-            </tbody>
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 px-0 logout-btn">
+                <div class="mx-4" style="float: right;">
+                    <a href="Login.html">Log Out</a>
+                </div>
+                <div style="float: right;">
+                    <a href="list.html">List</a>
+                </div>
+            </div>
            
-          </table>
-
-      </div>
-    
-    <h2>Experience</h2> <br>  
-    <input type="text" id="work_Role" placeholder="Enter Designation" />
-    <input type="text" id="company_Name" placeholder="Enter Company Name" />
-    <input type="text" id="company_Location" placeholder="Enter Company Location" />
-    <input type="text" id="work_start_period" placeholder="Enter Work Start Period" />
-    <input type="text" id="work_end_period" placeholder="Enter Work End Period" />
-    <input type="text" id="experience_Desc" placeholder="Enter Experience Description" />
-
-    <button type="button"  onclick="exp_add('experience_view','workexperience','work_Role','company_Name','company_Location','work_start_period','work_end_period','experience_Desc',)">Add</button>  
-    <div>
-        <table  style="width:100%">
-            <tr>
-                <th>Designation</th>
-                <th>Company Name</th>
-                <th>Company Location</th>
-                <th>Work Start Period</th>
-                <th>Work end Period</th>
-                <th>Experience Description</th>
-                <th>Action</th>
-              </tr>
-
-              <tbody id="experience_view" ></tbody>
-            
-          </table>
-
-      </div>
-   
-     <button onclick="resumesubmit()">Submit</button>
-
-</div>
-<div class="code_preview_div">
-    <pre>
-        <code id="preview">
-        </code>
-        <div style="float: right; ">
-            <a style="color: #ffffff;" href="Login.html">Log Out</a>
         </div>
-    </pre>
+      </div>
+        <div class="resume_builder_divider">
+            <!-- Input Fields with Labels -->
+            <h4>Name</h4>
+            <input type="text" onkeyup="save(this,'name')" placeholder="Enter Your Name"><br>
+            
+            <h4>Email ID</h4>
+            <input type="email" onkeyup="save(this,'email')" placeholder="Enter Your Email"><br>
+            
+            <h4>Role</h4>
+            <input type="text" onkeyup="save(this,'role')" placeholder="Enter Your Role"><br>
+            
+            <h4>Mobile Number</h4>
+            <input type="tel" onkeyup="save(this,'phoneno')" placeholder="Enter Your Phone Number"><br>
+            
+            <h4>Profile Link</h4>
+            <input type="text" onkeyup="save(this,'LinkedIn')" placeholder="Enter Your LinkedIn"><br>
+            
+            <h4>Location</h4>
+            <input type="text" onkeyup="save(this,'location')" placeholder="Enter Your Location"><br>
 
-</div>  
+            <h4>Objective</h4>
+            <input type="text" onkeyup="save(this,'objective')" placeholder="Enter Your Objective"><br>
 
-</section>
-      
+            <h3>Personal Details</h3>
+            <h4>Father's Name</h4>
+            <input type="text" onkeyup="save(this,'fathername','personaldetails')" placeholder="Enter Your Father's Name"><br>
+
+            <h4>Mother's Name</h4>
+            <input type="text" onkeyup="save(this,'mothername','personaldetails')" placeholder="Enter Your Mother's Name"><br>
+            
+            <h4>Languages Known</h4>
+            <input type="text" id="language" placeholder="Enter Languages Known">
+            <button type="button" onclick="add('personaldetails','language','languages_known')">Add Language</button>
+            <ul id="language_listing"></ul>
+
+            <h4>Skills</h4>
+            <input type="text" id="skillvalue" placeholder="Enter Your Skills">
+            <button type="button" onclick="add('skills','skillvalue')"> Add</button>
+            <ul id="Skill_listing"></ul>
+
+            <h3>Education</h3>
+            <input type="text" id="education_name" placeholder="Enter Institute Name">
+            <input type="text" id="education_type" placeholder="Enter Studies">
+            <input type="text" id="education_start_Period" placeholder="Enter Period">
+            <input type="text" id="education_end_Period" placeholder="Enter Period">
+            <input type="text" id="education_Percentage" placeholder="Enter Percentage">
+            <button type="button" onclick="exp_add('education_view','education','education_name','education_type','education_start_Period','education_end_Period','education_Percentage')">Add</button>
+            <div>
+                <table style="width:100%">
+                    <tr>
+                        <th>Institute Name</th>
+                        <th>Studies</th>
+                        <th>Starting Year</th>
+                        <th>Ending Year</th>
+                        <th>Percentage</th>
+                        <th>Action</th>
+                    </tr>
+                    <tbody id="education_view"></tbody>
+                </table>
+            </div>
+
+            <h2>Projects</h2>
+            <input type="text" id="projectName" placeholder="Enter project name" />
+            <input type="text" id="projectstartYear" placeholder="Enter Project Start year" />
+            <input type="text" id="projectendYear" placeholder="Enter Project end year" />
+            <input type="text" id="project_Role" placeholder="Enter role in project" />
+            <input type="text" id="project_Url" placeholder="Enter Project Url" />
+            <input type="text" id="projectDescription" placeholder="Enter Project Description" />
+            <button type="button" onclick="exp_add('project_view','projects','projectName','projectstartYear','projectendYear','project_Role','project_Url','projectDescription')">Add</button>  
+            <div>
+                <table style="width:100%">
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Project Start Year</th>
+                        <th>Project End Year</th>
+                        <th>Project Role</th>
+                        <th>Project Url</th>
+                        <th>Project Description</th>
+                        <th>Action</th>
+                    </tr>
+                    <tbody id="project_view"></tbody>
+                </table>
+            </div>
+    
+            <h2>Experience</h2>
+            <input type="text" id="work_Role" placeholder="Enter Designation" />
+            <input type="text" id="company_Name" placeholder="Enter Company Name" />
+            <input type="text" id="company_Location" placeholder="Enter Company Location" />
+            <input type="text" id="work_start_period" placeholder="Enter Work Start Period" />
+            <input type="text" id="work_end_period" placeholder="Enter Work End Period" />
+            <input type="text" id="experience_Desc" placeholder="Enter Experience Description" />
+            <button type="button" onclick="exp_add('experience_view','workexperience','work_Role','company_Name','company_Location','work_start_period','work_end_period','experience_Desc')">Add</button>  
+            <div>
+                <table style="width:100%">
+                    <tr>
+                        <th>Designation</th>
+                        <th>Company Name</th>
+                        <th>Company Location</th>
+                        <th>Work Start Period</th>
+                        <th>Work end Period</th>
+                        <th>Experience Description</th>
+                        <th>Action</th>
+                    </tr>
+                    <tbody id="experience_view"></tbody>
+                </table>
+            </div>
+        <div class="my-4">
+            <button onclick="resumesubmit()">Submit</button>
+        </div>
+        
+        </div>
+        
+    </section>
 </body>
+
 <script src="main.js" text="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
 
 <script>
     // function getName (){
