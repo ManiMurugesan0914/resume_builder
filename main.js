@@ -312,6 +312,7 @@ function loginbutton(firstparam,secondparam){
     }
   }
   if (loginvalue==true){
+    localStorage.setItem("isLogged","true");
     alert("Login success");
     window.location.href = "resumebuilder.html";
   }else{
