@@ -313,7 +313,7 @@ function loginbutton(firstparam,secondparam){
   }
   if (loginvalue==true){
     alert("Login success");
-    window.location.href = "index.html";
+    window.location.href = "resumebuilder.html";
   }else{
     alert("Login failed");
   }
